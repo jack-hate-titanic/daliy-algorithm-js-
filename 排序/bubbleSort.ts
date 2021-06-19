@@ -15,3 +15,5 @@ const buddleSort = (arr: number[]): number[] => {
   }
   return arr;
 };
+
+console.log(buddleSort(arr));

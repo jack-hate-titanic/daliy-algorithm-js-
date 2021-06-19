@@ -1,0 +1,22 @@
+{
+  "name": "daliy-algorithm-js-",
+  "version": "1.0.0",
+  "description": "每天一个js算法",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Y-wson/daliy-algorithm-js-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Y-wson/daliy-algorithm-js-/issues"
+  },
+  "homepage": "https://github.com/Y-wson/daliy-algorithm-js-#readme",
+  "devDependencies": {
+    "@types/node": "^15.12.2"
+  }
+}
