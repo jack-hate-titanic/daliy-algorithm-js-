@@ -44,5 +44,5 @@ class LinkList {
     return this.size();
   }
 
-  // 参考
+  // 参考 https://zhuanlan.zhihu.com/p/105644038
 }
