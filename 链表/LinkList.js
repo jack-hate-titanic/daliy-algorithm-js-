@@ -14,7 +14,7 @@ class LinkList {
 
   find(item) {
     let currNode = this.head;
-    while (currNode && currNode.data !== item) {
+    while (currNode && currNode.value !== item) {
       currNode = currNode.next;
     }
     return currNode;
@@ -37,8 +37,8 @@ class LinkList {
   append(element) {
     let newNode = new Node(element);
     let currNode = this.findLast();
+
     currNode.next = newNode;
-    console.log(currNode.next);
     this.size++;
   }
 
