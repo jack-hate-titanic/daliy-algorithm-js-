@@ -50,6 +50,24 @@ class LinkList {
     return this.size;
   }
 
+  hasCycle(head) {
+    if (!head || !head.next) {
+      return false;
+    }
+    let slow = new Node(head.value);
+    let quick = new Node(head.next.value);
+    slow.next = head.next;
+    quick.next = head.next.next;
+    while (quick?.next && slow?.next) {
+      if (slow === quick) {
+        return true;
+      }
+      slow = slow.next;
+      quick = quick.next.next;
+    }
+    return false;
+  }
+
   // 参考 https://zhuanlan.zhihu.com/p/105644038
 }
 
@@ -57,4 +75,4 @@ const linkList = new LinkList();
 linkList.append(1);
 linkList.append(2);
 
-console.log(linkList.find(1));
+console.log(linkList.hasCycle(linkList.head));
