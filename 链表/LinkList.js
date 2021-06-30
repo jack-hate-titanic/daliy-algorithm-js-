@@ -34,15 +34,27 @@ class LinkList {
     }
   }
 
-  append(element) {}
+  append(element) {
+    let newNode = new Node(element);
+    let currNode = this.findLast();
+    currNode.next = newNode;
+    console.log(currNode.next);
+    this.size++;
+  }
 
   isEmpty() {
     return (this.size = 0);
   }
 
   getSize() {
-    return this.size();
+    return this.size;
   }
 
   // 参考 https://zhuanlan.zhihu.com/p/105644038
 }
+
+const linkList = new LinkList();
+linkList.append(1);
+linkList.append(2);
+
+console.log(linkList.find(1));
