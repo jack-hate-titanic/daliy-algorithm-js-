@@ -1,43 +1,57 @@
-class BinarySearchTree {
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+class BST {
   constructor() {
-    this.size = 0;
     this.root = null;
+    this.size = 0;
   }
 
-  add(node) {
-    this.nodeNullCheck(node);
-    if (!root) {
-      this.root = new NodeTree(node);
-      this.size++;
-      return;
-    }
-
-    // 添加的不是第一个节点
-    // 添加步骤，找到父节点 ，创建新节点， parent.left=node 或者parent.right=node
-    const cmp = this.compare();
+  getSize() {
+    return this.size;
   }
 
-  /**
-   *
-   * @param {*} node1
-   * @param {*} node2
-   * @returns
-   */
-  compare(node1, node2) {
-    return 0;
+  isEmpty() {
+    return this.size === 0;
   }
 
-  nodeNullCheck(node) {
+  addNode(v) {
+    this.root = this._addChild(this.root, v);
+  }
+
+  // 添加节点时，需要比较添加的节点值和当前节点值大小
+  _addChild(node, v) {
     if (!node) {
-      throw "node must not be null";
+      this.size++;
+      return new Node(v);
     }
+    if (node.value > v) {
+      node.left = this._addChild(node.left, v);
+    } else if (node.value < v) {
+      node.right = this._addChild(node.right, v);
+    }
+    return node;
+  }
+
+  preTraversal() {
+    this._pre(this.root);
+  }
+
+  _pre(node) {
+    node.value && console.log(node.value);
+    node?.left && this._pre(node.left);
+    node?.right && this._pre(node.right);
   }
 }
 
-class NodeTree {
-  constructor(node) {
-    this.node = node;
-    this.left = new NodeTree();
-    this.right = new NodeTree();
-  }
-}
+const bst = new BST();
+bst.addNode(6);
+bst.addNode(5);
+bst.addNode(7);
+
+bst.preTraversal();
